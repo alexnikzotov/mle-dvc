@@ -15,9 +15,16 @@ stages:
     deps:
     - path: scripts/data.py
       hash: md5
+      md5: 2962efaf2f69449741599fe473d95bfb
+      size: 1496
+    params:
+      params.yaml:
+        index_col: customer_id
     outs:
     - path: data/initial_data.csv
       hash: md5
+      md5: 05afae8efd351979d40d5dfc0b07af9f
+      size: 815076
   fit_model:
     cmd: python scripts/fit.py
     deps:
