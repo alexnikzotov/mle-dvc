@@ -9,6 +9,7 @@ from catboost import CatBoostClassifier
 import yaml
 import os
 import joblib
+import random # добавлено здесь
 
 # обучение модели
 def fit_model():
@@ -35,6 +36,9 @@ def fit_model():
 
     model = CatBoostClassifier(auto_class_weights='Balanced')
     pipeline = Pipeline([ ('preprocessor', preprocessor),('model', model) ])
+
+    data['target'] = [random.choice([0, 1]) for _ in range(len(data))] # Добавлено здесь
+
     pipeline.fit(data, data['target']) 
 
     # сохраните обученную модель в models/fitted_model.pkl

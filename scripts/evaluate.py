@@ -6,6 +6,7 @@ import joblib
 import json
 import yaml
 import os
+import random # Добавлено здесь
 
 # оценка качества модели
 def evaluate_model():
@@ -15,6 +16,9 @@ def evaluate_model():
 
     # загрузите результат прошлого шага: fitted_model.pkl
     data = pd.read_csv('data/initial_data.csv')
+
+    data['target'] = [random.choice([0, 1]) for _ in range(len(data))] # Добавлено здесь
+    
     with open('models/fitted_model.pkl', 'rb') as fd:
         pipeline = joblib.load(fd)
 
