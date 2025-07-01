@@ -8,6 +8,8 @@ stages:
       - index_col
     outs:
       - data/initial_data.csv
+    params:
+      - retain
   fit_model:
     cmd: python scripts/fit.py
     deps:
@@ -20,6 +22,8 @@ stages:
       - auto_class_weights
     outs:
       - models/fitted_model.pkl
+    params:
+      - retain
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
@@ -33,3 +37,5 @@ stages:
       - metrics
     outs:
       - cv_results/cv_res.json
+    params:
+      - retain
