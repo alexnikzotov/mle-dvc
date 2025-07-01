@@ -5,37 +5,26 @@ stages:
     deps:
       - scripts/data.py
     params:
-      - index_col
+      - retain
     outs:
       - data/initial_data.csv
-    params:
-      - retain
+
   fit_model:
     cmd: python scripts/fit.py
     deps:
       - data/initial_data.csv
       - scripts/fit.py
     params:
-      - index_col
-      - target_col
-      - one_hot_drop
-      - auto_class_weights
+      - retain
     outs:
       - models/fitted_model.pkl
-    params:
-      - retain
+
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
       - models/fitted_model.pkl
       - scripts/evaluate.py
     params:
-      - index_col
-      - target_col
-      - n_splits
-      - n_jobs
-      - metrics
+      - retain
     outs:
       - cv_results/cv_res.json
-    params:
-      - retain
