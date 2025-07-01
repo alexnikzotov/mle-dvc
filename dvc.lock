@@ -19,6 +19,10 @@ stages:
       hash: md5
       md5: 5aae1b57f3e8101add396134c2b534a7
       size: 77
+      cloud:
+        my_storage:
+          etag: 5aae1b57f3e8101add396134c2b534a7
+          version_id: 000638DC9FB75021
   get_data:
     cmd: python scripts/data.py
     deps:
@@ -57,3 +61,7 @@ stages:
       hash: md5
       md5: c230229cdfadd7df1aae4fec36cdff93
       size: 11438
+      cloud:
+        my_storage:
+          etag: c230229cdfadd7df1aae4fec36cdff93
+          version_id: 000638DC9FB7C9F5
